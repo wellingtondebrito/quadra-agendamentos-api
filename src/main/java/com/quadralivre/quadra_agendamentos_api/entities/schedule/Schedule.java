@@ -3,10 +3,13 @@ package com.quadralivre.quadra_agendamentos_api.entities.schedule;
 
 import com.quadralivre.quadra_agendamentos_api.entities.athlete.Athlete;
 import com.quadralivre.quadra_agendamentos_api.entities.sportsCourt.SportCourt;
+import com.quadralivre.quadra_agendamentos_api.enums.StatusRole;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Getter
@@ -26,7 +29,15 @@ public class Schedule {
 
     private LocalTime time;
 
-    private String status; // Enum status
+    private StatusRole status; // Enum status
+
+    @Column(nullable = false)
+    private int duration; // duração em minutos
+
+    @Column(precision = 10, scale = 2, nullable = false)
+    private BigDecimal priceTotal; // preço do agendamento
+
+    private int qtdAthletes; // quantidade de atletas
 
     @ManyToOne
     @JoinColumn(name = "athlete_id", nullable = false)
@@ -35,6 +46,6 @@ public class Schedule {
     @ManyToOne
     @JoinColumn(name = "sport_court_id", nullable = false)
     private SportCourt sportCourt; // a quadra agendada.
-
+    private LocalDateTime createdAt;
     // Add any additional fields or methods as needed
 }

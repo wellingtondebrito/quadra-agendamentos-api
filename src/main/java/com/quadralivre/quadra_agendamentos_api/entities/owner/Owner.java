@@ -12,10 +12,10 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Entity
 @Table(name = "owners")
 public class Owner extends User {
+
 
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<SportCourt> sportCourts = new ArrayList<>();
