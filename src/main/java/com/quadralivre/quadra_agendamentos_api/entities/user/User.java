@@ -1,5 +1,6 @@
 package com.quadralivre.quadra_agendamentos_api.entities.user;
 
+import com.quadralivre.quadra_agendamentos_api.enums.UserRole;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -11,6 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "users")
 public class User {
 
@@ -23,6 +25,10 @@ public class User {
 
     private String surname;
 
+    private String imgUrl;
+
+    private String cpf;
+
     @Column(nullable = false, unique = true)
     private String username;
 
@@ -33,8 +39,8 @@ public class User {
 
     private String phone;
 
-    @Column(nullable = false)
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private UserRole role;
 
     private LocalDateTime createdAt;
 

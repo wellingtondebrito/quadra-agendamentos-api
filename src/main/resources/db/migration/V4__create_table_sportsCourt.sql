@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS sport_courts (
     city VARCHAR(255) NOT NULL,
     state VARCHAR(255) NOT NULL,
     zip_code VARCHAR(20) NOT NULL,
+    cnpj VARCHAR(20),
     neighborhood VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
     type VARCHAR(50) NOT NULL,
@@ -22,6 +23,6 @@ CREATE TABLE IF NOT EXISTS sport_courts (
     payment_methods TEXT,
     reviews TEXT,
     ratings DECIMAL(3, 2),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_at TIMESTAMP DEFAULT now(),
     FOREIGN KEY (owner_id) REFERENCES owners(id) ON DELETE CASCADE
 );

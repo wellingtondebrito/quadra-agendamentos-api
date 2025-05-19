@@ -2,6 +2,7 @@ package com.quadralivre.quadra_agendamentos_api.entities.sportsCourt;
 
 import com.quadralivre.quadra_agendamentos_api.entities.owner.Owner;
 import com.quadralivre.quadra_agendamentos_api.entities.schedule.Schedule;
+import com.quadralivre.quadra_agendamentos_api.enums.StatusRole;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -25,6 +26,7 @@ public class SportCourt {
     private Long id;
     @Column(nullable = false)
     private String name;
+    private String cnpj;
     @Column(nullable = false)
     private String address;
     @Column(nullable = false)
@@ -40,7 +42,7 @@ public class SportCourt {
     private String description;
     @Column(nullable = false)
     private String type; // Enum tipo de quadra (Futebol, Basquete, etc)
-    private String status; // Enum status (Disponível, Ocupada, etc)
+    private StatusRole status; // Enum status (Disponível, Ocupada, etc)
     private String imageUrl; // URL da imagem da quadra
     @Column(nullable = false)
     private String phone;
