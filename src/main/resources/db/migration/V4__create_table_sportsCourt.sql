@@ -21,8 +21,6 @@ CREATE TABLE IF NOT EXISTS sport_courts (
     owner_id BIGINT NOT NULL,
     rules TEXT,
     payment_methods TEXT,
-    reviews TEXT,
-    ratings DECIMAL(3, 2),
     created_at TIMESTAMP DEFAULT now(),
     FOREIGN KEY (owner_id) REFERENCES owners(id) ON DELETE CASCADE
 );
