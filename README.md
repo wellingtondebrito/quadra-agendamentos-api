@@ -18,6 +18,6 @@ Sistema em Java/Spring Boot para agendamento de quadras esportivas.
 ## Como rodar localmente
 
 1. Crie o banco de dados `quadras`
-2. Atualize o `application.yml` com usuário e senha do seu PostgreSQL
+2. Atualize o `application.properties` com usuário e senha do seu PostgreSQL
 3. Rode o projeto pela classe `QuadraAgendamentosApiApplication`
 
