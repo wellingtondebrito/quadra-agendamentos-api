@@ -23,4 +23,6 @@ public interface AthleteMapper {
 
     void updateEntityFromDto(AthleteRequestDto dto, @MappingTarget Athlete athlete);
 
+    void createEntityFromDto(AthleteRequestDto dto, @MappingTarget Athlete athlete);
+
 }

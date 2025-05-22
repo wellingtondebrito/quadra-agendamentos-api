@@ -5,6 +5,7 @@ import com.quadralivre.quadra_agendamentos_api.entities.schedule.Schedule;
 import com.quadralivre.quadra_agendamentos_api.entities.user.User;
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@SuperBuilder
 @Entity
 @PrimaryKeyJoinColumn
 @DiscriminatorValue("athletes")

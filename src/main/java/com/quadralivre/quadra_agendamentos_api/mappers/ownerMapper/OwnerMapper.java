@@ -18,7 +18,9 @@ import java.util.List;
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface OwnerMapper {
 
-   OwnerResponseDto toDto(Owner owner);
+    void createEntityFromDto(OwnerRequestDto dto, @MappingTarget Owner owner);
+
+    OwnerResponseDto toDto(Owner owner);
 
     List<OwnerResponseDto> toDtoList(List<Owner> owners);
 
