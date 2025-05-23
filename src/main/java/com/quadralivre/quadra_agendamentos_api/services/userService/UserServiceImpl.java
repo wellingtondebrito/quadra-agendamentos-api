@@ -1,10 +1,16 @@
 package com.quadralivre.quadra_agendamentos_api.services.userService;
 
+import com.quadralivre.quadra_agendamentos_api.dtos.athleteDtos.AthleteRequestDto;
 import com.quadralivre.quadra_agendamentos_api.dtos.usersDtos.UserRequestDto;
 import com.quadralivre.quadra_agendamentos_api.dtos.usersDtos.UserResponseDto;
+import com.quadralivre.quadra_agendamentos_api.entities.athlete.Athlete;
 import com.quadralivre.quadra_agendamentos_api.entities.user.User;
+import com.quadralivre.quadra_agendamentos_api.enums.UserRole;
+import com.quadralivre.quadra_agendamentos_api.mappers.athleteMapper.AthleteMapper;
 import com.quadralivre.quadra_agendamentos_api.mappers.userMapper.UserMapper;
+import com.quadralivre.quadra_agendamentos_api.repositories.athlete.AthleteRepository;
 import com.quadralivre.quadra_agendamentos_api.repositories.user.UserRepository;
+import com.quadralivre.quadra_agendamentos_api.services.athleteService.AthleteService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +21,7 @@ public class UserServiceImpl implements UserService{
 
     private final UserRepository userRepository;
     private final UserMapper userMapper;
+
 
     @Override
     public UserResponseDto createUser(UserRequestDto userDto) {

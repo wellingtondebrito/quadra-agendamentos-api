@@ -14,7 +14,7 @@ import java.util.List;
 public class OwnerServiceImpl implements OwnerService{
 
     private final OwnerRepository ownerRepository;
-    private OwnerMapper ownerMapper;
+    private final OwnerMapper ownerMapper;
 
     @Override
     public OwnerResponseDto createOwner(OwnerRequestDto dto) {

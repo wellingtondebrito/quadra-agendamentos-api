@@ -29,7 +29,6 @@ public class AthleteServiceImpl implements AthleteService {
     public AthleteResponseDto createAthlete(AthleteRequestDto dto) {
         Athlete athlete = new Athlete();
         athleteMapper.createEntityFromDto(dto, athlete);
-
         athleteRepository.save(athlete);
         return athleteMapper.toDto(athlete);
 

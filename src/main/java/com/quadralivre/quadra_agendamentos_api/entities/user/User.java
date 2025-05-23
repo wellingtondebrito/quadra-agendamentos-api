@@ -26,6 +26,7 @@ public class User {
 
     private String surname;
 
+    @Column(name = "image_url")
     private String imgUrl;
 
     private String cpf;

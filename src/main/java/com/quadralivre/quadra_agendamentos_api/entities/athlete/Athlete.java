@@ -18,6 +18,7 @@ import java.util.List;
 @Entity
 @PrimaryKeyJoinColumn
 @DiscriminatorValue("athletes")
+@Table(name = "athletes")
 public class Athlete extends User {
 
 

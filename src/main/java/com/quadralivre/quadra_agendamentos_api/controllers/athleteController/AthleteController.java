@@ -15,7 +15,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/athletes")
+@RequestMapping("/api/v1/athletes")
 public class AthleteController {
 
     private final AthleteService athleteService;

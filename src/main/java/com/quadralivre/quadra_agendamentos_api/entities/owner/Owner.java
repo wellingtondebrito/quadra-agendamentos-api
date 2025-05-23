@@ -16,6 +16,7 @@ import java.util.List;
 @SuperBuilder
 @Entity
 @PrimaryKeyJoinColumn
+@DiscriminatorValue("owners")
 @Table(name = "owners")
 public class Owner extends User {
 

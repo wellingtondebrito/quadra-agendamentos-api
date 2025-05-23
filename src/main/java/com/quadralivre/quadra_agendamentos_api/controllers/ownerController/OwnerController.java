@@ -12,7 +12,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/owners")
+@RequestMapping("/api/v1/owners")
 public class OwnerController {
 
     private final OwnerService ownerService;
