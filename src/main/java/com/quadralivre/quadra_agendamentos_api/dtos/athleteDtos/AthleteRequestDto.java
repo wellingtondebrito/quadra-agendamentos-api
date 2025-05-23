@@ -1,5 +1,7 @@
 package com.quadralivre.quadra_agendamentos_api.dtos.athleteDtos;
 
+import com.quadralivre.quadra_agendamentos_api.enums.UserRole;
+
 public record AthleteRequestDto(
 
         String name,
@@ -7,9 +9,10 @@ public record AthleteRequestDto(
         String imgUrl,
         String cpf,
         String username,
+        String password,
         String email,
         String phone,
-        String role
+        UserRole role
 
 ) {
 }
