@@ -25,9 +25,7 @@ public record SportsCourtRequestDto(
         String location,
         Long ownerId,
         String rules,
-        String paymentMethods,
-        Long scheduleId,
-        Long reviewId,
-        LocalDateTime createdAt
+        String paymentMethods
+
 ) {
 }

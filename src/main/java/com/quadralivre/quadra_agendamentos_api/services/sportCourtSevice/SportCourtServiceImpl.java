@@ -1,0 +1,62 @@
+package com.quadralivre.quadra_agendamentos_api.services.sportCourtSevice;
+
+import com.quadralivre.quadra_agendamentos_api.dtos.sportsCourtDtos.SportsCourtRequestDto;
+import com.quadralivre.quadra_agendamentos_api.dtos.sportsCourtDtos.SportsCourtResponseDto;
+import com.quadralivre.quadra_agendamentos_api.entities.sportsCourt.SportCourt;
+import com.quadralivre.quadra_agendamentos_api.mappers.sportCourtMapper.SportCourtMapper;
+import com.quadralivre.quadra_agendamentos_api.repositories.sportCourt.SportCourtRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
+
+@Service
+@RequiredArgsConstructor
+public class SportCourtServiceImpl implements SportCourtService {
+
+    private final SportCourtRepository sportCourtRepository;
+    private final SportCourtMapper sportCourtMapper;
+
+    @Override
+    public SportsCourtResponseDto createSportCourt(SportsCourtRequestDto sportsCourtDto) {
+        SportCourt sportCourt = new SportCourt();
+
+        if(sportsCourtDto.ownerId() == null) {
+            throw new IllegalArgumentException("Owner ID cannot be null");
+        }
+        sportCourt.setCreatedAt(LocalDateTime.now());
+        sportCourtMapper.createEntityFromDto(sportsCourtDto, sportCourt);
+        sportCourtRepository.save(sportCourt);
+        return sportCourtMapper.toDto(sportCourt);
+
+    }
+
+    @Override
+    public List<SportsCourtResponseDto> getAllSportsCourts() {
+        List<SportCourt> sportCourts = sportCourtRepository.findAll();
+        return sportCourtMapper.toDtoList(sportCourts);
+    }
+
+    @Override
+    public SportsCourtResponseDto getSportCourtById(Long id) {
+        return null;
+    }
+
+    @Override
+    public SportsCourtResponseDto updateSportCourt(Long id, SportsCourtRequestDto sportsCourtDto) {
+        return null;
+    }
+
+    @Override
+    public void deleteSportCourt(Long id) {
+
+    }
+
+    @Override
+    public SportCourt getSportCourtByIdEntity(Long id) {
+        return sportCourtRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Sport Court not found with id: " + id));
+    }
+}

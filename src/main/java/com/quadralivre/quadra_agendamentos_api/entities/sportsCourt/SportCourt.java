@@ -8,6 +8,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -70,5 +71,6 @@ public class SportCourt {
     private List<Schedule> schedules = new ArrayList<>();
     // Lista de agendamentos associados à quadra
     private LocalDateTime createdAt;
+
 
 }

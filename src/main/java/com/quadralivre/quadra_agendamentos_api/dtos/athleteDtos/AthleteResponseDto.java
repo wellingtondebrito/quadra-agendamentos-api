@@ -1,6 +1,6 @@
 package com.quadralivre.quadra_agendamentos_api.dtos.athleteDtos;
 
-import com.quadralivre.quadra_agendamentos_api.dtos.shceduleDtos.ScheduleResponseDto;
+import com.quadralivre.quadra_agendamentos_api.dtos.scheduleDtos.ScheduleResponseDto;
 import com.quadralivre.quadra_agendamentos_api.entities.review.Review;
 
 import java.util.List;

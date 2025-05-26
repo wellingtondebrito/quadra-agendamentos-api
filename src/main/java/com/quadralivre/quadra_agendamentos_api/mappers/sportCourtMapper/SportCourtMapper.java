@@ -16,11 +16,13 @@ import java.util.List;
 
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
-public interface sportCourtMapper {
+public interface SportCourtMapper {
 
     SportsCourtResponseDto toDto(SportCourt sportCourt);
 
     List<SportsCourtResponseDto> toDtoList(List<SportCourt> sportCourts);
+
+    void createEntityFromDto(SportsCourtRequestDto dto, @MappingTarget SportCourt sportCourt);
 
     SportCourt toEntity(SportsCourtRequestDto dto);
 

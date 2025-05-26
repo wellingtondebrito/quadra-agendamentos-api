@@ -63,4 +63,10 @@ public class AthleteServiceImpl implements AthleteService {
         athleteRepository.delete(athlete);
 
     }
+
+    @Override
+    public Athlete getAthleteByIdEntity(Long id) {
+        return athleteRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Athlete not found"));
+    }
 }
