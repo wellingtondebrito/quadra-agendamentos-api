@@ -1,4 +1,4 @@
-package com.quadralivre.quadra_agendamentos_api.repositories.sportCourt.athlete;
+package com.quadralivre.quadra_agendamentos_api.repositories.sportCourt;
 
 import com.quadralivre.quadra_agendamentos_api.entities.sportsCourt.SportCourt;
 import org.springframework.data.jpa.repository.JpaRepository;

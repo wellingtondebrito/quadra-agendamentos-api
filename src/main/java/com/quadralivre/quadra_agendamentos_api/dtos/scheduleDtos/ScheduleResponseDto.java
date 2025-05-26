@@ -1,4 +1,4 @@
-package com.quadralivre.quadra_agendamentos_api.dtos.shceduleDtos;
+package com.quadralivre.quadra_agendamentos_api.dtos.scheduleDtos;
 
 import com.quadralivre.quadra_agendamentos_api.dtos.athleteDtos.AthleteResponseDto;
 import com.quadralivre.quadra_agendamentos_api.dtos.sportsCourtDtos.SportsCourtResponseDto;
