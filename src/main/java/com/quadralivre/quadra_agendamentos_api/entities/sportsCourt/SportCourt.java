@@ -1,12 +1,14 @@
 package com.quadralivre.quadra_agendamentos_api.entities.sportsCourt;
 
 import com.quadralivre.quadra_agendamentos_api.entities.owner.Owner;
+import com.quadralivre.quadra_agendamentos_api.entities.review.Review;
 import com.quadralivre.quadra_agendamentos_api.entities.schedule.Schedule;
 import com.quadralivre.quadra_agendamentos_api.enums.StatusRole;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -62,14 +64,14 @@ public class SportCourt {
     // Regras de uso da quadra
     private String paymentMethods;
     // Métodos de pagamento aceitos
-    private String reviews;
-    // Avaliações de usuários
-    private BigDecimal ratings;
-
+    @OneToMany(mappedBy = "sportsCourt", cascade = CascadeType.ALL)
+    private List<Review> reviews;
     @OneToMany(mappedBy = "sportCourt", cascade = CascadeType.ALL, orphanRemoval = true)
     // Relacionamento com a entidade Schedule
     private List<Schedule> schedules = new ArrayList<>();
     // Lista de agendamentos associados à quadra
     private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+
 
 }

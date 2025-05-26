@@ -47,5 +47,6 @@ public class Schedule {
     @JoinColumn(name = "sport_court_id", nullable = false)
     private SportCourt sportCourt; // a quadra agendada.
     private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
     // Add any additional fields or methods as needed
 }
