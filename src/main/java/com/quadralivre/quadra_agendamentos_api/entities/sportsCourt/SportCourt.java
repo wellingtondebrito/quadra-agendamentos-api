@@ -71,6 +71,7 @@ public class SportCourt {
     private List<Schedule> schedules = new ArrayList<>();
     // Lista de agendamentos associados à quadra
     private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
 
 }

@@ -18,10 +18,23 @@ public interface ReviewMapper {
 
    ReviewResponseDto toDto(Review review);
 
-    List<ReviewResponseDto> toDtoList(List<Review> reviews);
+   Review toEntity(ReviewRequestDto dto);
 
-    Review toEntity(ReviewRequestDto dto);
+   default List<ReviewResponseDto> toDtoListByAthlete(Long athleteId, List<Review> reviews){
+         return reviews.stream()
+                .filter(review -> review.getAthlete() != null && review.getAthlete().getId().equals(athleteId))
+                .map(this::toDto)
+                .toList();
+   }
 
-    void updateEntityFromDto(ReviewRequestDto dto, @MappingTarget Review review);
+    default List<ReviewResponseDto> toDtoListBySportCourt(Long sportCourtId, List<Review> reviews){
+            return reviews.stream()
+                 .filter(review -> review.getSportsCourt() != null && review.getSportsCourt().getId().equals(sportCourtId))
+                 .map(this::toDto)
+                 .toList();
+    }
+
+    void createEntityFromDto(ReviewRequestDto dto, @MappingTarget Review review);
+
 
 }

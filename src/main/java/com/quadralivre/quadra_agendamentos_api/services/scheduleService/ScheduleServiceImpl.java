@@ -88,6 +88,7 @@ public class ScheduleServiceImpl implements ScheduleService {
 
         LocalDate date = LocalDate.parse(scheduleDto.date());
         LocalTime time = LocalTime.parse(scheduleDto.time());
+        LocalDateTime updatedAt = LocalDateTime.now();
 
 
         if(date.isBefore(LocalDate.now()) || time.isBefore(LocalTime.now())) {
@@ -96,6 +97,7 @@ public class ScheduleServiceImpl implements ScheduleService {
 
         schedule.setDate(date);
         schedule.setTime(time);
+        schedule.setUpdatedAt(updatedAt);
         scheduleMapper.updateEntityFromDto(scheduleDto, schedule);
         scheduleRepository.save(schedule);
         return scheduleMapper.toDto(schedule);

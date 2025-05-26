@@ -52,4 +52,10 @@ public class OwnerServiceImpl implements OwnerService{
                 .orElseThrow(() -> new RuntimeException("Owner not found"));
         ownerRepository.delete(owner);
     }
+
+    @Override
+    public Owner getOwnerByIdEntity(Long id) {
+        return ownerRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Owner not found with id: " + id));
+    }
 }

@@ -2,6 +2,7 @@ package com.quadralivre.quadra_agendamentos_api.services.ownerService;
 
 import com.quadralivre.quadra_agendamentos_api.dtos.ownersDtos.OwnerRequestDto;
 import com.quadralivre.quadra_agendamentos_api.dtos.ownersDtos.OwnerResponseDto;
+import com.quadralivre.quadra_agendamentos_api.entities.owner.Owner;
 
 import java.util.List;
 
@@ -11,5 +12,6 @@ public interface OwnerService {
     OwnerResponseDto getOwnerById(Long id);
     OwnerResponseDto updateOwner(Long id, OwnerRequestDto dto);
     void deleteOwner(Long id);
+    Owner getOwnerByIdEntity(Long id);
 
 }
