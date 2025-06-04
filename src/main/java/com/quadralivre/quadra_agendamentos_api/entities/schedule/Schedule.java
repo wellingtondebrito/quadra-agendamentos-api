@@ -34,9 +34,10 @@ public class Schedule {
     @Column(nullable = false)
     private int duration; // duração em minutos
 
-    @Column(precision = 10, scale = 2, nullable = false)
+    @Column(precision = 10, scale = 2, nullable = false, name = "price")
     private BigDecimal priceTotal; // preço do agendamento
 
+    @Column(nullable = false, name = "qtd_athletes")
     private int qtdAthletes; // quantidade de atletas
 
     @ManyToOne
