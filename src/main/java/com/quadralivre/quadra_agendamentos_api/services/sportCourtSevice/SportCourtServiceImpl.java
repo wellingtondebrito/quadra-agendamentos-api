@@ -64,7 +64,6 @@ public class SportCourtServiceImpl implements SportCourtService {
 
         Owner owner = ownerService.getOwnerByIdEntity(sportsCourtDto.ownerId());
 
-        sportCourt.setUpdatedAt(LocalDateTime.now());
         sportCourt.setOwner(owner);
         sportCourtMapper.updateEntityFromDto(sportsCourtDto, sportCourt);
         sportCourtRepository.save(sportCourt);
