@@ -15,13 +15,11 @@ import java.util.List;
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface UserMapper {
 
-    void createEntityFromDto(UserRequestDto userDto, @MappingTarget User user);
+    User createEntityFromDto(UserRequestDto userDto);
 
     UserResponseDto toDto(User user);
 
     List<UserResponseDto> toDtoList(List<User> users);
-
-    User toEntity(UserRequestDto userDto);
 
     void updateEntityFromDto(UserRequestDto userDto, @MappingTarget User user);
 

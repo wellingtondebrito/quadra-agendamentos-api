@@ -24,6 +24,7 @@ public class UserControlle {
 
     @PostMapping
     public ResponseEntity<UserResponseDto> createUser(@RequestBody UserRequestDto userDto) {
+        System.out.println("Password recebido: " + userDto.password());
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.createUser(userDto));
     }
 
