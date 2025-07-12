@@ -22,6 +22,11 @@ public class OwnerController {
         return ResponseEntity.status(HttpStatus.OK).body(ownerService.getAllOwners());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<OwnerResponseDto> getOwnerById(@PathVariable Long id) {
+        return ResponseEntity.status(HttpStatus.OK).body(ownerService.getOwnerById(id));
+    }
+
     @PostMapping
     public ResponseEntity<OwnerResponseDto> createOwner(@RequestBody OwnerRequestDto ownerDto) {
         return ResponseEntity.status(201).body(ownerService.createOwner(ownerDto));

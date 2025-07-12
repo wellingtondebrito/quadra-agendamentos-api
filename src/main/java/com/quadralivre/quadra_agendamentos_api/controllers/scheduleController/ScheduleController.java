@@ -24,6 +24,12 @@ public class ScheduleController {
         return ResponseEntity.status(HttpStatus.OK).body(schedules);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<ScheduleResponseDto> getScheduleById(@PathVariable Long id) {
+        ScheduleResponseDto schedule = scheduleService.findScheduleById(id);
+        return ResponseEntity.status(HttpStatus.OK).body(schedule);
+    }
+
     @PostMapping
     public ResponseEntity<ScheduleResponseDto> createSchedule(@RequestBody ScheduleRequestDto scheduleDto) {
         ScheduleResponseDto createdSchedule = scheduleService.createSchedule(scheduleDto);

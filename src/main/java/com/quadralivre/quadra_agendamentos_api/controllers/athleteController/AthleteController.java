@@ -25,9 +25,19 @@ public class AthleteController {
         return ResponseEntity.status(HttpStatus.OK).body(athleteService.getAllAthlete());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<AthleteResponseDto> getAthleteById(@PathVariable Long id) {
+        return ResponseEntity.status(HttpStatus.OK).body(athleteService.getAthleteById(id));
+    }
+
     @PostMapping
     public ResponseEntity<AthleteResponseDto> createAthlete(@RequestBody AthleteRequestDto dto) {
-        return ResponseEntity.status(201).body(athleteService.createAthlete(dto));
+        return ResponseEntity.status(HttpStatus.CREATED).body(athleteService.createAthlete(dto));
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<AthleteResponseDto> updateAthletePartial(@PathVariable Long id, @RequestBody AthleteRequestDto dto) {
+        return ResponseEntity.status(HttpStatus.OK).body(athleteService.updateAthletePartial(id, dto));
     }
 
     @PutMapping("/{id}")
@@ -36,8 +46,8 @@ public class AthleteController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteAthlete(@PathVariable Long id) {
+    public ResponseEntity<String> deleteAthlete(@PathVariable Long id) {
         athleteService.deleteAthlete(id);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        return ResponseEntity.ok("Atleta deletado com sucesso!");
     }
 }
