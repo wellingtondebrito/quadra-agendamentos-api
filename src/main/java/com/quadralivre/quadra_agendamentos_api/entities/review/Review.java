@@ -9,32 +9,32 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDateTime;
 
 
-    @Entity
-    @Table(name = "reviews")
-    @Getter
-    @Setter
-    @NoArgsConstructor
-    @AllArgsConstructor
-    @Builder
-    public class Review {
+@Entity
+@Table(name = "reviews")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class Review {
 
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-        private int rating; // 1 a 5
+    private int rating; // 1 a 5
 
-        private String comments;
+    private String comments;
 
-        @CreationTimestamp
-        private LocalDateTime avaliationDate;
+    @CreationTimestamp
+    private LocalDateTime avaliationDate;
 
-        @ManyToOne
-        @JoinColumn(name = "athlete_id")
-        private Athlete athlete;
+    @ManyToOne
+    @JoinColumn(name = "athlete_id")
+    private Athlete athlete;
 
-        @ManyToOne
-        @JoinColumn(name = "sports_court_id")
-        private SportCourt sportsCourt;
-  }
+    @ManyToOne
+    @JoinColumn(name = "sports_court_id")
+    private SportCourt sportsCourt;
+}
 
