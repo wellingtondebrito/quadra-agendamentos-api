@@ -4,6 +4,7 @@ import com.quadralivre.quadra_agendamentos_api.entities.owner.Owner;
 import com.quadralivre.quadra_agendamentos_api.entities.review.Review;
 import com.quadralivre.quadra_agendamentos_api.entities.schedule.Schedule;
 import com.quadralivre.quadra_agendamentos_api.enums.StatusRole;
+import com.quadralivre.quadra_agendamentos_api.enums.StatusSportCourt;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -55,7 +56,7 @@ public class SportCourt {
     private String type;// Enum tipo de quadra (Futebol, Basquete, etc)
 
     @Enumerated(EnumType.STRING)
-    private StatusRole status; // Enum status (Disponível, Ocupada, etc)
+    private StatusSportCourt statusSportCourt; // Enum status das quadras esportivas
 
     private String imageUrl; // URL da imagem da quadra
 
