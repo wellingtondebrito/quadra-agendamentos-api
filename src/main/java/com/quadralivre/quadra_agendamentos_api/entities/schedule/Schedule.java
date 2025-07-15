@@ -32,7 +32,7 @@ public class Schedule {
     private LocalTime time;
 
     @Enumerated(EnumType.STRING)
-    private StatusRole status; // Enum status
+    private StatusRole status; // Enum status para agendamentos
 
     @Column(nullable = false)
     private int duration; // duração em minutos
