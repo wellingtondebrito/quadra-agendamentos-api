@@ -38,8 +38,8 @@ public class OwnerController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteOwner(@PathVariable Long id) {
+    public ResponseEntity<String > deleteOwner(@PathVariable Long id) {
         ownerService.deleteOwner(id);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        return ResponseEntity.ok("Proprietário deletado com sucesso!");
     }
 }

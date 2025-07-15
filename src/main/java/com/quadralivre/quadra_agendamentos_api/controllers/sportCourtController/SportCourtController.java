@@ -39,8 +39,8 @@ public class SportCourtController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteSportCourt(@PathVariable Long id) {
+    public ResponseEntity<String> deleteSportCourt(@PathVariable Long id) {
         sportCourtService.deleteSportCourt(id);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok("Quadra esportiva deletada com sucesso!");
     }
 }

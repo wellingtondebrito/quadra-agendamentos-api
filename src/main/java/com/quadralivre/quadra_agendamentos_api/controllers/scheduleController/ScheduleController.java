@@ -41,9 +41,10 @@ public class ScheduleController {
         ScheduleResponseDto updatedSchedule = scheduleService.updateSchedule(id, scheduleDto);
         return ResponseEntity.status(HttpStatus.OK).body(updatedSchedule);
     }
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteSchedule(@PathVariable Long id) {
+    public ResponseEntity<String> deleteSchedule(@PathVariable Long id) {
         scheduleService.deleteSchedule(id);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        return ResponseEntity.ok(" Agendamento deletado com sucesso!");
     }
 }
