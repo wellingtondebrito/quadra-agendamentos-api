@@ -10,8 +10,10 @@ import lombok.experimental.SuperBuilder;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Getter
 @Setter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
@@ -26,5 +28,5 @@ public class Athlete extends User {
     private List<Schedule> schedules = new ArrayList<>();
 
     @OneToMany(mappedBy = "athlete", cascade = CascadeType.ALL)
-    private List<Review> reviews;
+    private List<Review> reviews = new ArrayList<>();
 }

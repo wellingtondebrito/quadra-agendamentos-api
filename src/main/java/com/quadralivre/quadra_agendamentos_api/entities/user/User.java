@@ -4,6 +4,7 @@ import com.quadralivre.quadra_agendamentos_api.enums.UserRole;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -44,6 +45,7 @@ public class User {
     @Enumerated(EnumType.STRING)
     private UserRole role;
 
+    @CreationTimestamp
     private LocalDateTime createdAt;
 
 }

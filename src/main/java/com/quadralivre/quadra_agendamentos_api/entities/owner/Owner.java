@@ -11,7 +11,6 @@ import java.util.List;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
 @Entity
@@ -23,5 +22,11 @@ public class Owner extends User {
 
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<SportCourt> sportCourts = new ArrayList<>();
+
+    public Owner(){
+        super();
+        this.sportCourts = new ArrayList<>();
+
+    }
 
 }

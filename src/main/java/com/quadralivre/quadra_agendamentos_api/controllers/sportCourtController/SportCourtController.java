@@ -23,19 +23,24 @@ public class SportCourtController {
         return ResponseEntity.ok(sportsCourtResponseDtos);
     }
 
-    @PostMapping
-    public ResponseEntity<SportsCourtResponseDto> createSportCourt(@RequestBody SportsCourtRequestDto sportsCourtDto) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(sportCourtService.createSportCourt(sportsCourtDto));
-    }
-
     @GetMapping("/{id}")
     public ResponseEntity<SportsCourtResponseDto> getSportCourtById(@PathVariable Long id) {
         return ResponseEntity.ok(sportCourtService.getSportCourtById(id));
     }
 
+    @PostMapping
+    public ResponseEntity<SportsCourtResponseDto> createSportCourt(@RequestBody SportsCourtRequestDto sportsCourtDto) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(sportCourtService.createSportCourt(sportsCourtDto));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<SportsCourtResponseDto> updateSportCourt(@PathVariable Long id, @RequestBody SportsCourtRequestDto sportsCourtDto) {
+        return ResponseEntity.ok(sportCourtService.updateSportCourt(id, sportsCourtDto));
+    }
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteSportCourt(@PathVariable Long id) {
+    public ResponseEntity<String> deleteSportCourt(@PathVariable Long id) {
         sportCourtService.deleteSportCourt(id);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok("Quadra esportiva deletada com sucesso!");
     }
 }

@@ -6,6 +6,8 @@ import com.quadralivre.quadra_agendamentos_api.entities.sportsCourt.SportCourt;
 import com.quadralivre.quadra_agendamentos_api.enums.StatusRole;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -29,7 +31,8 @@ public class Schedule {
 
     private LocalTime time;
 
-    private StatusRole status; // Enum status
+    @Enumerated(EnumType.STRING)
+    private StatusRole status; // Enum status para agendamentos
 
     @Column(nullable = false)
     private int duration; // duração em minutos
@@ -47,7 +50,10 @@ public class Schedule {
     @ManyToOne
     @JoinColumn(name = "sport_court_id", nullable = false)
     private SportCourt sportCourt; // a quadra agendada.
+
+    @CreationTimestamp
     private LocalDateTime createdAt;
+
+    @UpdateTimestamp
     private LocalDateTime updatedAt;
-    // Add any additional fields or methods as needed
 }

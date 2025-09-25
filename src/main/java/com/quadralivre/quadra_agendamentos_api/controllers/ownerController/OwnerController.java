@@ -22,6 +22,11 @@ public class OwnerController {
         return ResponseEntity.status(HttpStatus.OK).body(ownerService.getAllOwners());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<OwnerResponseDto> getOwnerById(@PathVariable Long id) {
+        return ResponseEntity.status(HttpStatus.OK).body(ownerService.getOwnerById(id));
+    }
+
     @PostMapping
     public ResponseEntity<OwnerResponseDto> createOwner(@RequestBody OwnerRequestDto ownerDto) {
         return ResponseEntity.status(201).body(ownerService.createOwner(ownerDto));
@@ -33,8 +38,8 @@ public class OwnerController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteOwner(@PathVariable Long id) {
+    public ResponseEntity<String > deleteOwner(@PathVariable Long id) {
         ownerService.deleteOwner(id);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        return ResponseEntity.ok("Proprietário deletado com sucesso!");
     }
 }
